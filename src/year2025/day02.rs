@@ -20,12 +20,12 @@ pub fn part2(input: &Input) -> u64 {
 
 fn find_length_of_max(input: &Input) -> u32 {
     let mut max = 0;
-    for (a, b) in input {
-        if *a > max {
-            max = *a;
+    for &(a, b) in input {
+        if a > max {
+            max = a;
         }
-        if *b > max {
-            max = *b;
+        if b > max {
+            max = b;
         }
     }
     max.ilog10() + 1
@@ -33,7 +33,7 @@ fn find_length_of_max(input: &Input) -> u32 {
 
 fn find_invalids(max_length: u32) -> Vec<u64> {
     let mut invalids = Vec::new();
-    for digits in 2..=max_length {
+    for digits in (2..=max_length).step_by(2) {
         let size = digits / 2;
         let start = 10_u64.pow(size - 1);
         let end = 10_u64.pow(size);
