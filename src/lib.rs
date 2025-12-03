@@ -6,4 +6,4 @@ macro_rules! import {
     }
 }
 
-import!(year2025 day01, day02);
+import!(year2025 day01, day02, day03);

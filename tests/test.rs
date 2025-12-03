@@ -6,4 +6,4 @@ macro_rules! test {
     }
 }
 
-test!(year2025 day01,day02);
+test!(year2025 day01,day02,day03);
