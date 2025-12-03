@@ -26,13 +26,9 @@ fn find_joltage(battery: &Vec<u8>, n: usize) -> u64 {
     let mut result: u64 = 0;
     let mut index = 0;
     for digit in (0..n).rev() {
-        for scan_highest in (0..=9).rev() {
-            if let Some(highest_index) = battery[index..battery.len()-digit].iter().position(|&x| x == scan_highest) {
-                result *= 10;
-                result += scan_highest as u64;
-                index = index + highest_index + 1;
-                break;
-            }
+        if let Some((highest_index, &maximum_digit)) = battery[index..battery.len()-digit].iter().enumerate().max_by_key(|&(i, x)| (x, -(i as isize))) {
+            result = result * 10 + maximum_digit as u64;
+            index = index + highest_index + 1;
         }
     }
     result
