@@ -22,5 +22,5 @@ macro_rules! run {
 
 fn main()
 {
-    run!(year2025 day01, day02, day03, day04);
+    run!(year2025 day01, day02, day03, day04, day05);
 }
