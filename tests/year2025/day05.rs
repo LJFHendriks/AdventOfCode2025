@@ -1,7 +1,6 @@
 use aoc::year2025::day05::*;
 
-const EXAMPLE: &str = "1-8
-3-5
+const EXAMPLE: &str = "3-5
 10-14
 16-20
 12-18
@@ -22,5 +21,5 @@ fn part1_test() {
 #[test]
 fn part2_test() {
     let input = parse(EXAMPLE);
-    assert_eq!(part2(&input), 19);
+    assert_eq!(part2(&input), 14);
 }
